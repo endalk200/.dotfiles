@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 if [[ -z $STOW_FOLDERS ]]; then
     STOW_FOLDERS="bin,i3,netflix,nvim,personal,tmux,uwuntu,xkb,zsh"
 fi
