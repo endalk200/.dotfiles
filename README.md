@@ -3,3 +3,5 @@
 `brew install lazygit`
 
 `brew install neovim`
+
+`brew install --cask alacritty`
