@@ -11,7 +11,7 @@ return {
         "goplos",
         "lua_ls",
         "prettier",
-        -- "rubocop",
+        "rubocop",
         -- "ruby_lsp",
         "shfmot",
         -- "solargraph",
@@ -36,8 +36,7 @@ return {
           "tsserver",
           -- "solargraph",
           "gopls",
-          -- "rubocop",
-          -- "ruby_lsp",
+          "rubocop",
         },
       })
     end,
@@ -53,8 +52,7 @@ return {
       lspconfig.lua_ls.setup({})
       lspconfig.tsserver.setup({})
       -- lspconfig.solargraph.setup({})
-      -- lspconfig.rubocop.setup({})
-      --  lspconfig.ruby_lsp.setup({})
+      lspconfig.rubocop.setup({})
       lspconfig.gopls.setup({})
 
       -- Configure the neovim lsp to show function
