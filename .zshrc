@@ -50,7 +50,7 @@ alias c="code"
 alias vim="nvim"
 alias f="fzf"
 alias fo="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 nvim"
-alias fcd='cd "$(find . -type d \( -path '\''*/.git'\'' -o -path '\''*/node_modules'\'' \) -prune -o -type d -print | fzf)"'
+alias fcd='cd ~/src && cd "$(find . -type d \( -path '\''*/.git'\'' -o -path '\''*/node_modules'\'' \) -prune -o -type d -print | fzf)"'
 alias lgit="lazygit"
 alias clear="clear && printf '\e[3J'"
 alias ls="ls --color"
@@ -61,7 +61,8 @@ alias betheld="cd ~/src/projects/bethel"
 alias tmd="cd ~/src/projects/twoMatches/"
 alias ghce="gh copilot explain"
 alias ghcs="gh copilot suggest"
-
+alias rip="~/.dotfiles/rip.sh"
+alias air="~/go/bin/air"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -69,14 +70,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 export PATH="/Users/endalk200/.local/bin:$PATH"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 source ~/src/projects/bethel/config.sh
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
@@ -95,12 +91,13 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# chruby 3.3
-
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(tmuxifier init -)"
+
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # History
 HISTSIZE=5000
@@ -114,5 +111,4 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-
 
