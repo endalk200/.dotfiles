@@ -5,6 +5,14 @@ import = [
 [env]
 TERM = "xterm-256color"
 
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+  # { key = "Right", mods = "Super", chars = "\u0005F" },  # Move to end of line
+  # { key = "Left",  mods = "Super", chars = "\u0001B" },  # Move to beginning of line
+]
+
 [font]
 size = 16
 
@@ -27,3 +35,4 @@ style = "Regular"
 
 [window.padding]
 x = 10
+y = 1
