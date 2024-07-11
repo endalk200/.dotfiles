@@ -1,6 +1,8 @@
 import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/catppuccin-macchiato.toml"
 ]
+
+live_config_reload = true
 
 [env]
 TERM = "xterm-256color"
@@ -13,6 +15,27 @@ bindings = [
   # { key = "Left",  mods = "Super", chars = "\u0001B" },  # Move to beginning of line
 ]
 
+[cursor]
+blink_interval = 500
+blink_timeout = 5
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[shell]
+program = "/bin/zsh"
 [font]
 size = 16
 
@@ -32,6 +55,9 @@ style = "Italic"
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
+
+[window]
+option_as_alt = "Both"
 
 [window.padding]
 x = 10
