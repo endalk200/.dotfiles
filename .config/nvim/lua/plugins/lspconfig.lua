@@ -8,16 +8,19 @@ return {
         "gofumpt",
         "goimports-reviser",
         "golines",
-        "goplos",
+        "gopls",
         "lua_ls",
         "prettier",
-        "rubocop",
-        -- "ruby_lsp",
+        "ruby_lsp",
         "shfmot",
-        -- "solargraph",
         "stylua",
         "tsserver",
         "vtsls",
+        "yamlls",
+        "tflint",
+        "terraformls",
+        "markdownlint-cli2",
+        "markdown-toc",
       },
     },
     config = function()
@@ -32,11 +35,23 @@ return {
     confisong = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls",
-          "tsserver",
-          -- "solargraph",
+          "eslint_d",
+          "gofumpt",
+          "goimports-reviser",
+          "golines",
           "gopls",
-          "rubocop",
+          "lua_ls",
+          "prettier",
+          "ruby_lsp",
+          "shfmot",
+          "stylua",
+          "tsserver",
+          "vtsls",
+          "yamlls",
+          "tflint",
+          "terraformls",
+          "markdownlint-cli2",
+          "markdown-toc",
         },
       })
     end,
@@ -51,17 +66,35 @@ return {
 
       lspconfig.lua_ls.setup({})
       lspconfig.tsserver.setup({})
-      -- lspconfig.solargraph.setup({})
-      lspconfig.rubocop.setup({})
       lspconfig.gopls.setup({})
+      lspconfig.yamlls.setup({
+        settings = {
+          yaml = {
+            format = {
+              enable = true,
+              singleQuote = true,
+              bracketSpacing = true,
+              proseWrap = "preserve",
+              printWidth = 80,
+              tabSize = 4,
+            },
+          },
+        },
+      })
+      lspconfig.terraformls.setup({})
+      lspconfig.tflint.setup({})
 
       -- Configure the neovim lsp to show function
       -- documentation on shift k
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+        desc = "Go to definition",
+      })
       vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
       vim.keymap.set("n", "r", vim.lsp.buf.rename, {})
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {
+        desc = "Code action",
+      })
       vim.keymap.set({ "n", "v" }, "<leader>p", vim.lsp.buf.document_symbol, {})
     end,
   },

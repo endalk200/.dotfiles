@@ -24,6 +24,8 @@ return {
           "ruby",
           "vim",
           "yaml",
+          "terraform",
+          "hcl",
         },
         highlight = { enable = true },
         indent = { enable = true },

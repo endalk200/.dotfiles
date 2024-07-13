@@ -10,7 +10,7 @@ return {
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.rubocop,
+        -- null_ls.builtins.formatting.rubocop,
         --  null_ls.builtins.formatting.solargraph,
         null_ls.builtins.formatting.prettier,
         -- The following formatters are going to be installed via Mason
@@ -23,7 +23,9 @@ return {
         null_ls.builtins.formatting.golines,
         --  null_ls.builtins.diagnostics.eslint_d
         -- null_ls.builtins.diagnostics.solargraph,
-        null_ls.builtins.diagnostics.rubocop,
+        --  null_ls.builtins.diagnostics.rubocop,
+        null_ls.builtins.formatting.terraform_fmt,
+        null_ls.builtins.diagnostics.terraform_validate,
         require("none-ls.diagnostics.eslint_d"),
       },
 

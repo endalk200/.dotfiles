@@ -44,6 +44,9 @@ fi
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
+# Add this to your .zshrc
+source ~/shmux/management.sh
+
 # Aliases
 alias kb="kubectl"
 alias c="code"
@@ -55,14 +58,12 @@ alias lgit="lazygit"
 alias clear="clear && printf '\e[3J'"
 alias ls="ls --color"
 alias tree='tree -a -I ".git|node_modules"'
-alias src="cd ~/src"
-alias proj="cd ~/src/projects"
-alias betheld="cd ~/src/projects/bethel"
-alias tmd="cd ~/src/projects/twoMatches/"
-alias ghce="gh copilot explain"
-alias ghcs="gh copilot suggest"
 alias rip="~/.dotfiles/rip.sh"
 alias air="~/go/bin/air"
+alias ll="ls -lah"
+alias ta="tmux attach"
+alias t="tmux"
+
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -100,7 +101,7 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # History
-HISTSIZE=5000
+HISTSIZE=100000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
