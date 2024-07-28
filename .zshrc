@@ -15,10 +15,10 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+zinit load zsh-users/zsh-syntax-highlighting
+zinit load zsh-users/zsh-completions
+zinit load zsh-users/zsh-autosuggestions
+zinit load Aloxaf/fzf-tab
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -37,7 +37,7 @@ zinit cdreplay -q
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='nvim'
 fi
 
 # Keybindings
@@ -52,7 +52,7 @@ alias kb="kubectl"
 alias c="code"
 alias vim="nvim"
 alias f="fzf"
-alias fo="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 nvim"
+alias fo="cd ~/src && fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 nvim"
 alias fcd='cd ~/src && cd "$(find . -type d \( -path '\''*/.git'\'' -o -path '\''*/node_modules'\'' \) -prune -o -type d -print | fzf)"'
 alias lgit="lazygit"
 alias clear="clear && printf '\e[3J'"
@@ -95,21 +95,13 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(tmuxifier init -)"
 
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # History
-HISTSIZE=100000
+HISTSIZE=100000 # 1,000,000 :- the number of commands to load into memory
 HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
+SAVEHIST=1000000 # The number of commands saved into HISTFILE
+HISTDUP=erase # Remove older duplicate commands from the history list, keeping only the most recent occurrence.
 
