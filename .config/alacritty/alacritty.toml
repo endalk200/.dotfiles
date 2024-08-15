@@ -1,5 +1,5 @@
 import = [
-  "~/.config/alacritty/catppuccin-macchiato.toml"
+  "~/.config/alacritty/tokyonight-storm.toml"
 ]
 
 live_config_reload = true
@@ -9,8 +9,8 @@ TERM = "xterm-256color"
 
 [keyboard]
 bindings = [
-  { key = "Right", mods = "Alt", chars = "\u001BF" },
-  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+  # { key = "Right", mods = "Alt", chars = "\u001BF" },
+  # { key = "Left",  mods = "Alt", chars = "\u001BB" },
   # { key = "Right", mods = "Super", chars = "\u0005F" },  # Move to end of line
   # { key = "Left",  mods = "Super", chars = "\u0001B" },  # Move to beginning of line
 ]
@@ -36,8 +36,9 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
 program = "/bin/zsh"
+
 [font]
-size = 16
+size = 18 
 
 [font.bold]
 # family = "MesloLGS Nerd Font Mono"
@@ -58,7 +59,8 @@ style = "Regular"
 
 [window]
 option_as_alt = "Both"
+# decorations = "None"
 
 [window.padding]
-x = 10
+x = 4
 y = 1

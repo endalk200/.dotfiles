@@ -57,6 +57,23 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git co
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
+-- TODO: handle other modes
+-- Lua API to create mappings
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Mapping <C-d> to <C-d>zz
+map("n", "<C-d>", "<C-d>zz", opts)
+
+-- Mapping <C-u> to <C-u>zz
+map("n", "<C-u>", "<C-u>zz", opts)
+
+-- Mapping 'n' to 'nzzzv'
+map("n", "n", "nzzzv", opts)
+
+-- Mapping 'N' to 'Nzzzv'
+map("n", "N", "Nzzzv", opts)
+
 -- restart lsp server (not on youtube nvim video)
 -- keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
