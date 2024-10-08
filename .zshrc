@@ -1,6 +1,6 @@
 if [[ -f "/opt/homebrew/bin/brew" ]] then
-  # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  # If you're using macOS, you'll want this enabled
 fi
 
 # Set the directory we want to store zinit and plugins
@@ -44,17 +44,20 @@ fi
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
-# Add this to your .zshrc
-source ~/shmux/management.sh
-
 # Aliases
+alias tt="taskwarrior-tui"
 alias kb="kubectl"
+alias kns="kubens"
+alias kct="kubectx"
+alias k9="k9s"
 alias c="code"
 alias vim="nvim"
+alias v="nvim"
 alias f="fzf"
 alias fo="cd ~/src && fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 nvim"
 alias fcd='cd ~/src && cd "$(find . -type d \( -path '\''*/.git'\'' -o -path '\''*/node_modules'\'' \) -prune -o -type d -print | fzf)"'
 alias lgit="lazygit"
+alias ldocker="lazydocker"
 alias clear="clear && printf '\e[3J'"
 alias ls="ls --color"
 alias tree='tree -a -I ".git|node_modules"'
@@ -74,6 +77,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 export PATH="/Users/endalk200/.local/bin:$PATH"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 source ~/src/projects/bethel/config.sh
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
@@ -92,9 +96,11 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# source ~/.config/tsm/tsm.sh
 
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
@@ -102,6 +108,17 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # History
 HISTSIZE=100000 # 1,000,000 :- the number of commands to load into memory
 HISTFILE=~/.zsh_history
-SAVEHIST=1000000 # The number of commands saved into HISTFILE
+SAVEHIST=100000 # The number of commands saved into HISTFILE
 HISTDUP=erase # Remove older duplicate commands from the history list, keeping only the most recent occurrence.
+
+export HISTTIMEFORMAT="[%F %T] " # 
+
+setopt INC_APPEND_HISTORY # Commands should be added to history file immediately
+setopt EXTENDED_HISTORY # Record the commands with the actual timestamp
+setopt HIST_IGNORE_ALL_DUPS # Extension HIST_FIND_NO_DUPS. Don't save duplicate commands
+setopt HIST_EXPIRE_DUPS_FIRST # delete duplicates first when HISTFILE size exceeds HISTSIZE
+
+# setopt APPENDHISTORY # Append to history file don't override it
+setopt SHAREHISTORY # Share command history between all running zsh sessions
+setopt HIST_IGNORE_SPACE # Ignore commands starting with space 
 
