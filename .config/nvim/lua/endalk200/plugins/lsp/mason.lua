@@ -37,6 +37,7 @@ return {
 				"html",
 				"cssls",
 				"tailwindcss",
+				"eslint",
 				"lua_ls",
 				"emmet_ls",
 			},
@@ -50,7 +51,6 @@ return {
 				"rubocop",
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				"eslint_d",
 			},
 		})
 	end,
