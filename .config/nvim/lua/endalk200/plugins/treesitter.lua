@@ -12,9 +12,9 @@ return {
 			config.setup({
 				auto_install = false,
 				-- enable auto tagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
+				-- autotag = {
+				-- 	enable = true,
+				-- },
 				ensure_installed = {
 					"helm",
 					"bash",

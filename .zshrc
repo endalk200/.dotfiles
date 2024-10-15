@@ -19,6 +19,8 @@ zinit load zsh-users/zsh-syntax-highlighting
 zinit load zsh-users/zsh-completions
 zinit load zsh-users/zsh-autosuggestions
 zinit load Aloxaf/fzf-tab
+# zinit ice depth=1
+# zinit load jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -43,6 +45,7 @@ fi
 # Keybindings
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+# bindkey -v
 
 # Aliases
 alias tt="taskwarrior-tui"
@@ -81,6 +84,7 @@ export PATH="$HOME/go/bin:$PATH"
 
 source ~/src/projects/bethel/config.sh
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+export PATH="~/.chef/gem/ruby/3.0.0/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
