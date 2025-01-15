@@ -11,12 +11,101 @@ return {
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+		lspconfig.sqlls.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.html.setup({
+			capabilities = capabilities,
+			filetypes = {
+				"templ",
+				"html",
+				"php",
+				"css",
+				"javascriptreact",
+				"typescriptreact",
+				"javascript",
+				"typescript",
+				"jsx",
+				"tsx",
+			},
+		})
+		lspconfig.terraformls.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.prismals.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.gopls.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.tailwindcss.setup({
+			capabilities = capabilities,
+			filetypes = {
+				"templ",
+				"html",
+				"css",
+				"javascriptreact",
+				"typescriptreact",
+				"javascript",
+				"typescript",
+				"jsx",
+				"tsx",
+			},
+			root_dir = require("lspconfig").util.root_pattern(
+				"tailwind.config.js",
+				"tailwind.config.cjs",
+				"tailwind.config.mjs",
+				"tailwind.config.ts",
+				"postcss.config.js",
+				"postcss.config.cjs",
+				"postcss.config.mjs",
+				"postcss.config.ts",
+				"package.json",
+				"node_modules",
+				".git"
+			),
+		})
+
+		local configs = require("lspconfig.configs")
+		if not configs.ts_ls then
+			configs.ts_ls = {
+				default_config = {
+					cmd = { "typescript-language-server", "--stdio" },
+					capabilties = capabilities,
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+						"html",
+					},
+					root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", ".git"),
+					-- single_file_support = true,
+				},
+			}
+		end
+		lspconfig.ts_ls.setup({
+			-- capabilties = capabilities,
+			-- filetypes = {
+			--   "javascript",
+			--   "javascriptreact",
+			--   "typescript",
+			--   "typescriptreact",
+			--   "html",
+			-- },
+		})
+
+		-- lspconfig.tsserver.setup({})
+
+		-- local mason = require("mason")
 
 		-- import mason_lspconfig plugin
-		local mason_lspconfig = require("mason-lspconfig")
+		-- local mason_lspconfig = require("mason-lspconfig")
 
 		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap -- for conciseness
 
@@ -70,7 +159,7 @@ return {
 		})
 
 		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		-- local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -79,52 +168,5 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
-
-		mason_lspconfig.setup_handlers({
-			-- default handler for installed servers
-			function(server_name)
-				if server_name == "tsserver" then
-					server_name = "ts_ls"
-				end
-
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-			-- ["emmet_ls"] = function()
-			-- 	-- configure emmet language server
-			-- 	lspconfig["emmet_ls"].setup({
-			-- 		capabilities = capabilities,
-			-- 		filetypes = {
-			-- 			"html",
-			-- 			"typescriptreact",
-			-- 			"javascriptreact",
-			-- 			"css",
-			-- 			"sass",
-			-- 			"scss",
-			-- 			"less",
-			-- 			"svelte",
-			-- 		},
-			-- 	})
-			-- end,
-			["lua_ls"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							-- make the language server recognize "vim" global
-							diagnostics = {
-								globals = { "vim" },
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
-						},
-					},
-				})
-			end,
-			["rust_analyzer"] = function() end,
-		})
 	end,
 }
