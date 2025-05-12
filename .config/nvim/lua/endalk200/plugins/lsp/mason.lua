@@ -1,8 +1,9 @@
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"neovim/nvim-lspconfig", -- enable LSP
 	},
 	config = function()
 		-- import mason
@@ -28,7 +29,7 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"rust_analyzer",
-				"tflint",
+				-- "tflint",
 				"terraformls",
 				"gopls",
 				"rubocop",
@@ -42,21 +43,62 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"sqlls",
+				"pyright",
+				"ruff",
+			},
+			handlers = {
+				-- Default handler for all servers listed in ensure_installed.
+				-- Receives the lspconfig server name.
+				function(server_name)
+					local lspconfig_module = require("lspconfig")
+					local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+					-- Your lspconfig.lua defines a custom 'ts_ls'.
+					-- Mason installs 'typescript-language-server', which lspconfig knows as 'tsserver'.
+					-- We will set up 'tsserver' normally here. Your 'ts_ls' config will remain separate
+					-- and can be used if you have specific keymaps or commands for it.
+					lspconfig_module[server_name].setup({
+						capabilities = capabilities,
+					})
+				end,
+
+				-- You can add specific handlers for servers if needed, for example:
+				-- ["lua_ls"] = function()
+				--   require("lspconfig").lua_ls.setup({ capabilities = capabilities, settings = { ... } })
+				-- end,
 			},
 		})
 
+		-- Create specific handlers for each server
+		local lsp_handlers = {}
+		for _, server_name in ipairs(servers_to_ensure_installed) do
+			lsp_handlers[server_name] = function()
+				local server_opts = {
+					capabilities = cmp_nvim_lsp.default_capabilities(),
+				}
+				-- For 'ts_ls', your lspconfig.lua already defines its full configuration,
+				-- including capabilities. Calling setup here ensures it's activated
+				-- and merges these capabilities if not already set by the primary config.
+				-- For other standard servers, this will be their main setup call via mason-lspconfig.
+				lspconfig_module[server_name].setup(server_opts)
+			end
+		end
+
+		require("mason-lspconfig").setup_handlers(lsp_handlers)
+
+		-- Explicitly define setup_handlers
 		-- require("mason-lspconfig").setup_handlers({
-		-- 	-- Will be called for each installed server that doesn't have
-		-- 	-- a dedicated handler.
-		-- 	--
-		-- 	function(server_name) -- default handler (optional)
-		-- 		-- https://github.com/neovim/nvim-lspconfig/pull/3232
+		-- 	-- Default handler for all servers listed in ensure_installed
+		-- 	function(server_name)
+		-- 		-- The tsserver -> ts_ls mapping can be useful if mason identifies
+		-- 		-- the TypeScript LSP as "tsserver" internally.
 		-- 		if server_name == "tsserver" then
 		-- 			server_name = "ts_ls"
 		-- 		end
-		-- 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		-- 		require("lspconfig")[server_name].setup({
 		--
+		-- 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		--
+		-- 		require("lspconfig")[server_name].setup({
 		-- 			capabilities = capabilities,
 		-- 		})
 		-- 	end,
@@ -70,6 +112,9 @@ return {
 				"rubocop",
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
+				"black",
+				"mypy",
+				"tflint",
 			},
 		})
 	end,

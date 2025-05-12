@@ -8,28 +8,31 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
-		local HEIGHT_RATIO = 0.8 -- You can change this
-		local WIDTH_RATIO = 0.7 -- You can change this too
+		-- local HEIGHT_RATIO = 0.8 -- You can change this
+		-- local WIDTH_RATIO = 0.7 -- You can change this too
 
-		local VIEW_WIDTH_FIXED = 30
-		local view_width_max = VIEW_WIDTH_FIXED -- fixed to start
+		local HEIGHT_RATIO = 0.8 -- You can change this
+		local WIDTH_RATIO = 0.5 -- You can change this too
+
+		-- local VIEW_WIDTH_FIXED = 30
+		-- local view_width_max = VIEW_WIDTH_FIXED -- fixed to start
 
 		-- toggle the width and redraw
-		local function toggle_width_adaptive()
-			if view_width_max == -1 then
-				view_width_max = VIEW_WIDTH_FIXED
-			else
-				view_width_max = -1
-			end
-
-			require("nvim-tree.api").tree.reload()
-		end
+		-- local function toggle_width_adaptive()
+		-- 	if view_width_max == -1 then
+		-- 		view_width_max = VIEW_WIDTH_FIXED
+		-- 	else
+		-- 		view_width_max = -1
+		-- 	end
+		--
+		-- 	require("nvim-tree.api").tree.reload()
+		-- end
 
 		nvimtree.setup({
 			view = {
 				relativenumber = true,
 				float = {
-					enable = false,
+					enable = true,
 					open_win_config = function()
 						local screen_w = vim.opt.columns:get()
 						local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
@@ -52,10 +55,13 @@ return {
 				-- width = function()
 				-- 	return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
 				-- end,
-				width = {
-					min = 30,
-					max = get_view_width_max,
-				},
+				-- width = {
+				-- 	min = 30,
+				-- 	max = get_view_width_max,
+				-- },
+				width = function()
+					return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+				end,
 			},
 			-- change folder arrow icons
 			renderer = {
@@ -90,8 +96,8 @@ return {
 			"<cmd>NvimTreeFindFileToggle<CR>",
 			{ desc = "Toggle file explorer on current file" }
 		) -- toggle file explorer on current file
-		keymap.set("n", "<leader>et", "<cmd>NvimTreeFocus<CR>", { desc = "Focus on file explorer" }) -- toggle file explorer on current file
-		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+		-- keymap.set("n", "<leader>et", "<cmd>NvimTreeFocus<CR>", { desc = "Focus on file explorer" }) -- toggle file explorer on current file
+		-- keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
+		-- keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
 	end,
 }

@@ -40,6 +40,9 @@ return {
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
 		})
+		lspconfig.pyright.setup({
+			capabilities = capabilities,
+		})
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
 			filetypes = {
@@ -73,7 +76,7 @@ return {
 			configs.ts_ls = {
 				default_config = {
 					cmd = { "typescript-language-server", "--stdio" },
-					capabilties = capabilities,
+					capabilities = capabilities,
 					filetypes = {
 						"javascript",
 						"javascriptreact",

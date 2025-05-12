@@ -21,6 +21,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				ruby = { "rubocop" },
+				python = { "black" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

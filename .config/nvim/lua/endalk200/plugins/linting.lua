@@ -12,6 +12,7 @@ return {
 			svelte = { "eslint_d" },
 			yaml = { "yamllint" },
 			ruby = { "rubocop" },
+			python = { "ruff", "mypy" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

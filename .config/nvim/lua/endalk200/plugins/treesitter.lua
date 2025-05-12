@@ -8,6 +8,9 @@ return {
 		},
 		config = function()
 			local config = require("nvim-treesitter.configs")
+			-- local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+			--
+			-- ft_to_parser.mdx = "markdown"
 
 			config.setup({
 				auto_install = false,
