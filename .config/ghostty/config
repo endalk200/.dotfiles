@@ -1,3 +1,6 @@
-theme = tokyonight-storm
+theme = Catppuccin Mocha
+
 font-size = 18
+
 window-padding-y = 0
+window-padding-x = 0
