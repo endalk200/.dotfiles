@@ -11,21 +11,42 @@ vim.keymap.set('n', '<leader>bo', '<Cmd>BufferLineCloseOthers<CR>', { desc = 'De
 vim.keymap.set('n', '<leader>bp', '<Cmd>BufferLineTogglePin<CR>', { desc = 'Toggle buffer pin' })
 vim.keymap.set('n', '<leader>bd', '<Cmd>bdelete<CR>', { desc = 'Delete current buffer' })
 
--- tabs & indentation
-vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-vim.opt.shiftwidth = 2 -- 2 spaces for indent width
-vim.opt.expandtab = true -- expand tab to spaces
-vim.opt.autoindent = true -- copy indent from current line when starting new one
-vim.opt.smartindent = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- line numbers
-vim.opt.relativenumber = true -- show relative line numbers
-vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', 'K', function()
+  if #vim.lsp.get_clients { bufnr = 0 } > 0 then
+    vim.lsp.buf.hover {
+      border = 'rounded',
+      max_height = 25,
+      max_width = 100,
+    }
+    return
+  end
+
+  vim.cmd.normal { 'K', bang = true }
+end, { desc = 'Hover documentation' })
 
 -- diagnostics
-vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Show full diagnostic message' })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+vim.keymap.set('n', 'gl', function()
+  vim.diagnostic.open_float {
+    border = 'rounded',
+    focusable = true,
+    source = 'if_many',
+  }
+end, { desc = 'Show full diagnostic message' })
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump { count = -1, float = true }
+end, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump { count = 1, float = true }
+end, { desc = 'Go to next diagnostic' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic quickfix list' })
 
 -- Example mappings you can add anywhere after setup:
 vim.keymap.set('n', '<leader>cC', '<cmd>CodeCompanionActions<cr>', { desc = 'CodeCompanion: Actions' })

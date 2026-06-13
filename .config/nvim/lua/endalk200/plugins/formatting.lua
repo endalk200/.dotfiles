@@ -42,6 +42,9 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      go = { 'goimports', 'gofumpt' },
+      rust = { 'rustfmt' },
+      prisma = { 'prisma' },
       -- Conform can also run multiple formatters sequentially
       python = { 'isort', 'black' },
 
@@ -53,8 +56,11 @@ return { -- Autoformat
       css = biome_or_prettier { 'prettier' },
       html = biome_or_prettier { 'prettier' },
       json = biome_or_prettier { 'prettier' },
+      jsonc = biome_or_prettier { 'prettier' },
       yaml = { 'prettier' },
       markdown = { 'prettier' },
+      sh = { 'shfmt' },
+      bash = { 'shfmt' },
 
       hcl = { 'packer_fmt' },
       terraform = { 'terraform_fmt' },
