@@ -1,2 +1,15 @@
 ---
 quitOnTopLevelReturn: true
+editor:
+  editPreset: "nvim"
+  editInTerminal: true
+
+git:
+  commit:
+    aiCommitMessage:
+      enabled: true
+      command: "bun run ./apps/yolocommit/dist/index.js"
+
+keybinding:
+  commitMessage:
+    generateCommitMessage: "<c-g>" # optional, this is the default

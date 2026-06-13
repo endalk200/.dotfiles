@@ -17,4 +17,5 @@ INITIAL_QUERY="${*:-}"
 	--preview-window 'right,50%,border-rounded,+{2}+3/3,~3' \
 	--border 'none' \
 	--padding 2 \
-	--bind 'enter:become(nvim {1} +{2})'
+  --bind 'enter:become(code -g {1}:{2})'
+  # --bind 'enter:become(nvim {1} +{2})' \

@@ -104,7 +104,7 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-# source ~/.config/tsm/tsm.sh
+source ~/.config/shmux/shmux.sh
 
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
@@ -126,3 +126,28 @@ setopt HIST_EXPIRE_DUPS_FIRST # delete duplicates first when HISTFILE size excee
 setopt SHAREHISTORY # Share command history between all running zsh sessions
 setopt HIST_IGNORE_SPACE # Ignore commands starting with space 
 
+
+# pnpm
+export PNPM_HOME="/Users/endalk200/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by Windsurf
+export PATH="/Users/endalk200/.codeium/windsurf/bin:$PATH"
+. "/Users/endalk200/.deno/env"
+
+eval "$(direnv hook zsh)"
+
+# export PATH="$HOME/.local/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export OPENCODE_EXPERIMENTAL_PLAN_MODE=1
+
+# bun completions
+[ -s "/Users/endalk200/.bun/_bun" ] && source "/Users/endalk200/.bun/_bun"
