@@ -4,7 +4,6 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 ## Tools Configured
 
-- Alacritty
 - Neovim
 - Zsh
 - Starship
@@ -17,12 +16,6 @@ This repository contains my personal configuration files (dotfiles) for various 
 ```
 .
 ├── .config
-│   ├── alacritty
-│   │   ├── alacritty.toml
-│   │   ├── catppuccin-frappe.toml
-│   │   ├── catppuccin-macchiato.toml
-│   │   ├── catppuccin-mocha.toml
-│   │   └── one_dark.toml
 │   ├── lazygit
 │   │   └── config.yml
 │   ├── nvim
@@ -64,7 +57,6 @@ This repository contains my personal configuration files (dotfiles) for various 
 │   │               ├── trouble.lua
 │   │               ├── vim-maximizer.lua
 │   │               └── which-key.lua
-│   └── starship.toml
 ├── .p10k.zsh
 ├── .stow-local-ignore
 ├── .tmux.conf
@@ -80,7 +72,5 @@ This repository contains my personal configuration files (dotfiles) for various 
 `brew install lazygit`
 
 `brew install neovim`
-
-`brew install --cask alacritty`
 
 `brew install zoxide`
