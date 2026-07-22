@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "conventional-commit": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "skillPath": "skills/conventional-commit/SKILL.md",
+      "computedHash": "ef72e3453893a72a6a9704368dac887c282aa3e5d322687f352f4dac5f632162"
+    },
+    "teach": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "skillPath": "skills/teach/SKILL.md",
+      "computedHash": "d40aa8714d441c99454a4a4b44e1ebcda7ca14e4d2470b318904a31aa7b6ec26"
+    },
+    "writing-great-skills": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "skillPath": "skills/writing-great-skills/SKILL.md",
+      "computedHash": "42fe94c64d7b9acda9ce7d6495a3476893a1b18615986528f55f7162a29789d4"
+    }
+  }
+}

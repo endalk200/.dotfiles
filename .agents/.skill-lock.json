@@ -1,43 +1,23 @@
 {
   "version": 3,
   "skills": {
-    "conventional-commit": {
-      "source": "endalk200/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/endalk200/skills.git",
-      "skillPath": "skills/engineering/conventional-commit/SKILL.md",
-      "skillFolderHash": "645f87b6bd34469a988c012e179fabeb2b84b2c4",
-      "pluginName": "Endalk Skills",
-      "installedAt": "2026-06-13T11:01:54.473Z",
-      "updatedAt": "2026-06-13T11:01:54.473Z"
-    },
-    "grill-me": {
-      "source": "endalk200/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/endalk200/skills.git",
-      "skillPath": "skills/productivity/grill-me/SKILL.md",
-      "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
-      "pluginName": "Endalk Skills",
-      "installedAt": "2026-06-13T11:01:54.475Z",
-      "updatedAt": "2026-06-13T11:01:54.475Z"
-    },
-    "teach": {
-      "source": "endalk200/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/endalk200/skills.git",
-      "skillPath": "skills/productivity/teach/SKILL.md",
-      "skillFolderHash": "975430f7801bac2258ed18f4d80860024443b4f7",
-      "installedAt": "2026-06-13T11:01:54.476Z",
-      "updatedAt": "2026-06-13T11:01:54.476Z"
-    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/skills.git",
       "skillPath": "skills/find-skills/SKILL.md",
-      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
-      "installedAt": "2026-06-13T11:02:03.539Z",
-      "updatedAt": "2026-06-13T11:02:03.539Z"
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-07-17T10:35:42.477Z",
+      "updatedAt": "2026-07-17T10:35:42.477Z"
+    },
+    "artiflow": {
+      "source": "endalk200/artiflow",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/artiflow.git",
+      "skillPath": "skills/artiflow/SKILL.md",
+      "skillFolderHash": "8e4737d45b4692250b5ac0eeda559119226b15c8",
+      "installedAt": "2026-07-22T15:31:01.512Z",
+      "updatedAt": "2026-07-22T15:31:01.512Z"
     }
   },
   "dismissed": {
