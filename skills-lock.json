@@ -1,23 +1,35 @@
 {
   "version": 1,
   "skills": {
-    "conventional-commit": {
+    "babysit-pr": {
       "source": "endalk200/skills",
       "sourceType": "github",
-      "skillPath": "skills/conventional-commit/SKILL.md",
-      "computedHash": "ef72e3453893a72a6a9704368dac887c282aa3e5d322687f352f4dac5f632162"
+      "skillPath": "skills/babysit-pr/SKILL.md",
+      "computedHash": "86a4098f5d8b6e2c5c89c81555cef27e1fb5e262f7ac3ad0f4f913088306221a"
+    },
+    "create-pr": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-pr/SKILL.md",
+      "computedHash": "bfb158e02b9d99a23b4dc4dfad3e2c076d212eb757a549bc442df498389c2d0b"
     },
     "teach": {
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/teach/SKILL.md",
-      "computedHash": "d40aa8714d441c99454a4a4b44e1ebcda7ca14e4d2470b318904a31aa7b6ec26"
+      "computedHash": "66c753c4815b8230f6b83a09a17f6d920dc642a03c4607c67f3a3b713a547750"
     },
-    "writing-great-skills": {
+    "wait-what": {
       "source": "endalk200/skills",
       "sourceType": "github",
-      "skillPath": "skills/writing-great-skills/SKILL.md",
-      "computedHash": "42fe94c64d7b9acda9ce7d6495a3476893a1b18615986528f55f7162a29789d4"
+      "skillPath": "skills/wait-what/SKILL.md",
+      "computedHash": "9638acdcd76457ca70a007b5a02c4bf44893fb3064692a9158d907e82f200eec"
+    },
+    "writing-for-agents": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "skillPath": "skills/writing-for-agents/SKILL.md",
+      "computedHash": "c5c2bd5ee5518d98e0c6b805b462edb8b80132ca346276127de8c03129806270"
     }
   }
 }

@@ -1,5 +1,5 @@
 ---
-name: conventional-commit
+name: commit
 description: Create git commits using Conventional Commits. Use when the user asks to commit code, prepare a commit, write a commit message, or standardize commit history with conventional commit types, scopes, breaking-change markers, and safe git workflow checks.
 ---
 
