@@ -1,3 +1,5 @@
 interface:
-  display_name: "Conventional Commit"
+  display_name: "Commit"
   short_description: "Create safe Conventional Commits"
+policy:
+  allow_implicit_invocation: false

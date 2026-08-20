@@ -1,5 +1,5 @@
 interface:
   display_name: "Create PR"
-  short_description: "Publish a branch for review"
+  short_description: "Use when creating a pull or merge request."
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

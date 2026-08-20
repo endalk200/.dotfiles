@@ -1,6 +1,7 @@
 ---
 name: commit
 description: Create git commits using Conventional Commits. Use when the user asks to commit code, prepare a commit, write a commit message, or standardize commit history with conventional commit types, scopes, breaking-change markers, and safe git workflow checks.
+disable-model-invocation: true
 ---
 
 # Conventional Commit
@@ -17,15 +18,6 @@ Use this structure:
 [optional body]
 
 [optional footer(s)]
-```
-
-Examples:
-
-```text
-feat(auth): add password reset flow
-fix(api): handle expired session tokens
-docs: clarify deployment steps
-refactor!: remove legacy payment adapter
 ```
 
 ## Types
@@ -58,10 +50,23 @@ Add a scope when it improves clarity:
 
 Write the description in imperative mood, lowercase unless a proper noun requires capitalization.
 
-- Good: `fix(auth): reject expired tokens`
-- Good: `docs: add local setup notes`
-- Avoid: `fixed auth token issue`
-- Avoid: `updates stuff`
+Name the observable behavior or outcome rather than a generic action or implementation detail. Mention the implementation mechanism only when it distinguishes the change. Include a measurement only when observed verification supports it. Put the cause, rationale, trade-offs, and supporting implementation detail in the commit body.
+
+Examples:
+
+```text
+Weak:   feat(auth): add password reset flow
+Better: feat(auth): let users reset forgotten passwords
+
+Weak:   perf(server): negotiate permessage-deflate on websocket
+Better: perf(server): reduce websocket frame size with compression
+```
+
+When verification measured the result, prefer the verified outcome:
+
+```text
+perf(server): cut websocket frame size by 70%
+```
 
 Keep the subject line concise, ideally 72 characters or less.
 
@@ -128,7 +133,7 @@ Use this decision process:
 
 If multiple unrelated changes are present, ask whether to split them into separate commits unless the user already specified grouping.
 
-## Commit Body (Optional)
+## Commit Body
 
 A commit body explains the reasoning or context behind the change. Consider one for every commit, but include it only when it adds durable information beyond the subject and diff.
 
