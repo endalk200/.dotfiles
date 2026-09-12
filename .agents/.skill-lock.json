@@ -1,7 +1,133 @@
 {
   "version": 3,
-  "skills": {},
+  "skills": {
+    "babysit-pr": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/babysit-pr/SKILL.md",
+      "skillFolderHash": "ca8be811d5c2e09f203ef789f2047aa640ac1706",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.527Z",
+      "updatedAt": "2026-09-12T08:25:58.527Z"
+    },
+    "commit": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/commit/SKILL.md",
+      "skillFolderHash": "c1f3259e202565cdc494a627ee8178c0fa870ebf",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.531Z",
+      "updatedAt": "2026-09-12T08:25:58.531Z"
+    },
+    "create-pr": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/create-pr/SKILL.md",
+      "skillFolderHash": "45ad668738bac784ac9e446230e350bb8626438b",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.532Z",
+      "updatedAt": "2026-09-12T08:25:58.532Z"
+    },
+    "grill-me": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/grill-me/SKILL.md",
+      "skillFolderHash": "0bca439f46b7f4be023fa9f32b68a10a74ac34b3",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.533Z",
+      "updatedAt": "2026-09-12T08:25:58.533Z"
+    },
+    "grilling": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/grilling/SKILL.md",
+      "skillFolderHash": "395bb699336485999bc3ac8b1cd9a0fbef893eca",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.534Z",
+      "updatedAt": "2026-09-12T08:25:58.534Z"
+    },
+    "research": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/research/SKILL.md",
+      "skillFolderHash": "cfc7d857e27efdcd45e8c473f41fd139f67043b6",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.535Z",
+      "updatedAt": "2026-09-12T08:25:58.535Z"
+    },
+    "retro": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/retro/SKILL.md",
+      "skillFolderHash": "4d774990dcae4a5b9947173f032d036b1ffe10df",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.536Z",
+      "updatedAt": "2026-09-12T08:25:58.536Z"
+    },
+    "teach": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/teach/SKILL.md",
+      "skillFolderHash": "dc881dbf83ad360013b2d10d1bc6e166114f2355",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.537Z",
+      "updatedAt": "2026-09-12T08:25:58.537Z"
+    },
+    "technical-writing": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/technical-writing/SKILL.md",
+      "skillFolderHash": "0b420d110856f8c8e66bc0bdde50efa1dc2c1643",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.538Z",
+      "updatedAt": "2026-09-12T08:25:58.538Z"
+    },
+    "wait-what": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/wait-what/SKILL.md",
+      "skillFolderHash": "6abe708f1bf253158a037ac49faea2944e2809dc",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.540Z",
+      "updatedAt": "2026-09-12T08:25:58.540Z"
+    },
+    "writing-for-agents": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/endalk200/skills.git",
+      "skillPath": "skills/writing-for-agents/SKILL.md",
+      "skillFolderHash": "1018e965cf3f2855e85c12211a45c8020a08ecc5",
+      "pluginName": "Endalk Skills",
+      "installedAt": "2026-09-12T08:25:58.540Z",
+      "updatedAt": "2026-09-12T08:25:58.540Z"
+    }
+  },
   "dismissed": {
     "findSkillsPrompt": true
-  }
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "cline",
+    "codex",
+    "cursor",
+    "droid",
+    "gemini-cli",
+    "github-copilot",
+    "kilo",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed",
+    "claude-code"
+  ]
 }

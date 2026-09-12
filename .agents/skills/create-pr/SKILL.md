@@ -44,4 +44,6 @@ GOOD
 
 Treat the description examples as shape, not evidence. Use first-person framing and user-impact claims only when supported by the user's prompt, the diff, or observed verification.
 
+Prefer a compact Mermaid diagram when the change has diagrammable structure and the diagram makes the change easier to review. Choose the diagram type that matches the change—for example, a sequence diagram for interactions, a state diagram for lifecycle changes, a flowchart for control or data flow, or an entity/class diagram for relationships. Depict the behavior or structure introduced by this request, keep it at reviewer-level detail, and omit the diagram when prose is clearer.
+
 Open a ready PR or MR so review bots run unless the user explicitly requests a draft. Fetch the created request and verify that its source, target, labels, and assignee match the intended values before reporting success. If the user also asked to babysit it, continue with the `babysit-pr` skill.

@@ -90,7 +90,7 @@ Before committing:
 2. Run `git diff` and `git diff --staged` to understand unstaged and staged changes.
 3. Run `git log --oneline -n 10` to learn the repository's existing commit style.
 4. Identify which changes belong in this commit. Do not stage unrelated user changes.
-5. Do not commit secrets, credentials, local environment files, generated artifacts, or unrelated formatting churn.
+5. Do not commit secrets, credentials, local environment files, disposable build output, or unrelated formatting churn. Include intentionally version-controlled generated artifacts when they belong to the requested change.
 6. If there are suspicious files such as `.env`, private keys, tokens, or credential JSON files, stop and ask before committing them.
 
 When staging:

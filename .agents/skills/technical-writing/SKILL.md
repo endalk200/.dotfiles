@@ -99,6 +99,7 @@ Source: Kohl, The Global English Style Guide (SAS Press). Guideline text fetched
 
 ## Voice and repo specifics
 
+- Before creating or editing an ADR, read the project's ADR format. If the project has no format, use `domain-modeling/ADR-FORMAT.md` from this collection. Record the decision and rationale; keep tunable limits and rollout procedures in their owning reference or accepted issue.
 - Use `create-pr` for pull-request descriptions and `commit` for commit messages. Those skills own their format and workflow.
 - Product UI strings are not documentation. Use your product's copy guidelines for those.
 - Indent code snippets with tabs. Write real paths and real symbols. Make every count or tree claim true at the commit that lands it, and include the command that regenerates it.
