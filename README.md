@@ -2,6 +2,21 @@
 
 This repository contains my personal configuration files (dotfiles) for various tools and applications that I use on a daily basis. These dotfiles help in setting up a consistent and efficient development environment across different machines.
 
+## Set up a new machine
+
+Install your tools, then link the dotfiles into your home directory with Stow:
+
+```sh
+brew install stow
+git clone https://github.com/endalk200/.dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+stow --verbose --target="$HOME" .
+```
+
+If Stow reports conflicts, move the existing conflicting configs to a backup location and rerun the command. Reload your tools afterward.
+
+After pulling updates, run `stow --verbose --target="$HOME" .` from `~/.dotfiles` again to link new files.
+
 ## Tools Configured
 
 - Neovim
