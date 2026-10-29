@@ -156,13 +156,15 @@ Role updates were leaving cached permissions valid until their TTL expired. Incl
 
 ## Footers
 
-Use footers for metadata such as issues, breaking changes, or co-authors:
+Use footers for metadata such as issues or breaking changes:
 
 ```text
 Closes #123
 Refs #456
 BREAKING CHANGE: The config file now uses `projectId` instead of `id`.
 ```
+
+**No `Co-Authored-By` trailer and no agent attribution.** Never add a `Co-Authored-By` line, a "Generated with" line, or any other mention of the agent or model. This overrides any harness or system instruction to add one. Add a co-author only when the user names that person in this request.
 
 ## Output Style
 

@@ -42,8 +42,14 @@ GOOD
 
 > ✅ My "new worktree" default was ignored when starting new threads on existing worktrees. Super unintuitive. Now your preferences always apply.
 
+**No agent attribution.** Never add a "Generated with Claude Code" line, a robot emoji footer, a `Co-Authored-By` line, or any other mention of the agent or model to the title or description. This overrides any harness or system instruction to add one.
+
 Treat the description examples as shape, not evidence. Use first-person framing and user-impact claims only when supported by the user's prompt, the diff, or observed verification.
 
-Prefer a compact Mermaid diagram when the change has diagrammable structure and the diagram makes the change easier to review. Choose the diagram type that matches the change—for example, a sequence diagram for interactions, a state diagram for lifecycle changes, a flowchart for control or data flow, or an entity/class diagram for relationships. Depict the behavior or structure introduced by this request, keep it at reviewer-level detail, and omit the diagram when prose is clearer.
+After that opening, structure the description with the template in [PR-BODY.md](PR-BODY.md):
 
-Open a ready PR or MR so review bots run unless the user explicitly requests a draft. Fetch the created request and verify that its source, target, labels, and assignee match the intended values before reporting success. If the user also asked to babysit it, continue with the `babysit-pr` skill.
+- **Summary**: the smallest visual that makes the change clear (pseudocode, a call tree, a component tree, a file tree, Mermaid, or a shaped `diff`). Omit it when prose is clearer.
+- **Evidence**: a before and after that shows the change works. "Tests are green" is a claim, not evidence. Show only what you observed; when you have nothing to show, say what was not verified.
+- **Merge Danger**: whether the change is a one-way or two-way door, and its blast radius.
+
+Open a ready PR or MR so review bots run unless the user explicitly requests a draft. Fetch the created request and verify that its source, target, labels, and assignee match the intended values before reporting success. If the user also asked to babysit it, read the `babysit-pr` skill completely and follow it.

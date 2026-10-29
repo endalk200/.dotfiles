@@ -68,7 +68,7 @@ This step is complete when all five fields are populated and mutually consistent
 
 Lead with the pinned SHA and a compact table of IDs, titles, validity, scope, priority, and recommendation. Then explain each docket entry in this form:
 
-#### F1 — Short finding title
+#### F1: Short finding title
 
 - **Source:** reviewer and linked comment(s)
 - **Background:** the relevant behavior and why the reviewer cares, in plain language

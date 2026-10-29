@@ -1,0 +1,3 @@
+# Credits
+
+The PR body template in [PR-BODY.md](PR-BODY.md) comes from Matt Pocock's [`pr`](https://github.com/mattpocock/skills) skill. Its **Summary** menu of visuals (pseudocode, call trees, component trees, file trees, Mermaid, diffs) and their placement guidance come from [Dex Horthy](https://github.com/dexhorthy)'s [`show-me`](https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md) skill (HumanLayer), adapted to describe a diff instead of a live conversation. The content is copied in rather than loaded as a dependency, so this file carries the attribution.
