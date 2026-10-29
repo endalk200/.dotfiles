@@ -51,7 +51,7 @@ return {
   require 'endalk200.plugins.nvim-tree',
   require 'endalk200.plugins.telescope.main',
   require 'endalk200.plugins.treesitter',
-  require 'endalk200.plugins.vim-tmux-navigator',
+  require 'endalk200.plugins.smart-splits',
   require 'endalk200.plugins.ai',
   {
     'folke/todo-comments.nvim',
