@@ -6,7 +6,7 @@ return {
     lint.linters_by_ft = {
       dockerfile = { 'hadolint' },
       github_action = { 'actionlint' },
-      markdown = { 'markdownlint' },
+      markdown = { 'markdownlint-cli2' },
       sh = { 'shellcheck' },
       yaml = { 'yamllint' },
     }

@@ -70,7 +70,7 @@ local tools = {
   'goimports',
   'hadolint',
   'isort',
-  'markdownlint',
+  'markdownlint-cli2',
   'prettier',
   'shellcheck',
   'shfmt',
