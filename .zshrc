@@ -152,6 +152,12 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export OPENCODE_EXPERIMENTAL_PLAN_MODE=1
 
+# Agent gateway (CLIProxyAPI) client key, read by Codex's env_http_headers.
+# See ~/.dotfiles/agent-gateway/README.md.
+if [[ -r "$HOME/.local/share/agent-gateway/client-key" ]]; then
+  export CLIPROXY_API_KEY="$(<"$HOME/.local/share/agent-gateway/client-key")"
+fi
+
 # bun completions
 [ -s "/Users/endalk200/.bun/_bun" ] && source "/Users/endalk200/.bun/_bun"
 

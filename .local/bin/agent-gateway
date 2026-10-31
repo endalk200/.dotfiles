@@ -1,0 +1,189 @@
+#!/usr/bin/env bash
+# Manage the local AI agent gateway: CLIProxyAPI routes Claude Code, Codex, and
+# OpenCode through pooled subscriptions, and Oh My CPA records usage.
+#
+# Templates live in ~/.dotfiles/agent-gateway. Keys, logins, and databases stay
+# on this machine under ~/.local/share and ~/.cli-proxy-api.
+set -euo pipefail
+
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
+TEMPLATES="$DOTFILES_DIR/agent-gateway"
+SECRETS_DIR="$HOME/.local/share/agent-gateway"
+CPA_DIR="$HOME/.cli-proxy-api"
+CPA_CONFIG="$CPA_DIR/config.yaml"
+CPA_URL="http://127.0.0.1:8317"
+OMC_DIR="$HOME/.local/share/oh-my-cpa"
+OMC_URL="http://127.0.0.1:8080"
+OMC_REPO="WizisCool/oh-my-cpa"
+LAUNCH_AGENTS="$HOME/Library/LaunchAgents"
+ENV_LABEL="dev.endalk200.agent-gateway-env"
+OMC_LABEL="dev.endalk200.oh-my-cpa"
+
+die() { printf 'agent-gateway: %s\n' "$*" >&2; exit 1; }
+info() { printf '==> %s\n' "$*"; }
+
+usage() {
+  cat <<'EOF'
+Usage: agent-gateway <command>
+
+Commands:
+  setup               Create keys, write the CLIProxyAPI config, and start the proxy
+  login claude|codex  Sign in to one more subscription account (--no-browser prints the URL)
+  install-omc [VER]   Install or upgrade Oh My CPA (latest release by default)
+  status              Show proxy, accounts, and Oh My CPA health
+  key                 Print the proxy client key (used by Claude Code's apiKeyHelper)
+EOF
+}
+
+ensure_dirs() {
+  mkdir -p "$SECRETS_DIR" "$CPA_DIR" "$OMC_DIR" "$LAUNCH_AGENTS"
+  chmod 700 "$SECRETS_DIR" "$CPA_DIR" "$OMC_DIR"
+  [[ -w "$LAUNCH_AGENTS" ]] ||
+    die "$LAUNCH_AGENTS is not writable. Run: sudo chown \"\$USER\":staff ~/Library/LaunchAgents"
+}
+
+# Generate a random hex secret once; never overwrite an existing one.
+ensure_secret() {
+  local file="$SECRETS_DIR/$1"
+  if [[ ! -s "$file" ]]; then
+    (umask 077 && openssl rand -hex "$2" | tr -d '\n' > "$file")
+    info "Generated $file"
+  fi
+}
+
+secret() { tr -d '\n' < "$SECRETS_DIR/$1"; }
+
+# render TEMPLATE DEST SED_EXPRESSION...
+render() {
+  local template="$1" dest="$2" expr
+  shift 2
+  local args=()
+  for expr in "$@"; do args+=(-e "$expr"); done
+  (umask 077 && sed "${args[@]}" "$template" > "$dest")
+}
+
+install_agent() {
+  local label="$1"
+  local plist="$LAUNCH_AGENTS/$label.plist" domain
+  domain="gui/$(id -u)"
+  render "$TEMPLATES/$label.plist.template" "$plist" "s|__HOME__|$HOME|g"
+  chmod 644 "$plist"
+  launchctl bootout "$domain/$label" 2>/dev/null || true
+  launchctl bootstrap "$domain" "$plist"
+}
+
+cmd_setup() {
+  command -v cliproxyapi >/dev/null || die "cliproxyapi is missing. Run: brew install cliproxyapi"
+  ensure_dirs
+  ensure_secret client-key 32
+  ensure_secret management-key 24
+
+  if [[ -e "$CPA_CONFIG" ]]; then
+    info "Keeping existing $CPA_CONFIG"
+  else
+    render "$TEMPLATES/cliproxyapi.config.template.yaml" "$CPA_CONFIG" \
+      "s/__CLIENT_KEY__/$(secret client-key)/" \
+      "s/__MANAGEMENT_KEY__/$(secret management-key)/"
+    info "Wrote $CPA_CONFIG"
+  fi
+
+  # The Homebrew service reads this path; point it at the local config.
+  local brew_conf
+  brew_conf="$(brew --prefix)/etc/cliproxyapi.conf"
+  if [[ "$(readlink "$brew_conf" 2>/dev/null || true)" != "$CPA_CONFIG" ]]; then
+    if [[ -f "$brew_conf" && ! -L "$brew_conf" ]]; then
+      mv "$brew_conf" "$brew_conf.default"
+    fi
+    ln -sfn "$CPA_CONFIG" "$brew_conf"
+    info "Linked $brew_conf -> $CPA_CONFIG"
+  fi
+
+  install_agent "$ENV_LABEL"
+  info "Exported CLIPROXY_API_KEY to GUI apps"
+
+  brew services restart cliproxyapi >/dev/null
+  info "CLIProxyAPI is running at $CPA_URL"
+}
+
+cmd_login() {
+  local provider="${1:-}"
+  shift || true
+  case "$provider" in
+    claude) exec cliproxyapi --claude-login "$@" ;;
+    codex) exec cliproxyapi --codex-login "$@" ;;
+    *) die "Usage: agent-gateway login claude|codex [--no-browser]" ;;
+  esac
+}
+
+latest_omc_version() {
+  curl -fsSL "https://api.github.com/repos/$OMC_REPO/releases/latest" |
+    sed -n 's/.*"tag_name": *"v\{0,1\}\([^"]*\)".*/\1/p' | head -n 1
+}
+
+cmd_install_omc() {
+  local version="${1:-}" arch asset work base domain
+  version="${version#v}"
+  [[ -n "$version" ]] || version="$(latest_omc_version)"
+  [[ -n "$version" ]] || die "Could not determine the latest Oh My CPA release"
+  arch="$(uname -m)"
+  [[ "$arch" == "x86_64" ]] && arch="amd64"
+  asset="oh-my-cpa_${version}_darwin_${arch}.tar.gz"
+  base="https://github.com/$OMC_REPO/releases/download/v$version"
+
+  work="$(mktemp -d)"
+  # shellcheck disable=SC2064 # expand now; $work is local
+  trap "rm -rf '$work'" EXIT
+  info "Downloading $asset"
+  curl -fsSL -o "$work/$asset" "$base/$asset"
+  curl -fsSL -o "$work/checksums.txt" "$base/checksums.txt"
+  (cd "$work" && grep -F "  $asset" checksums.txt | shasum -a 256 -c - >/dev/null) ||
+    die "Checksum mismatch for $asset"
+  tar -xzf "$work/$asset" -C "$work" oh-my-cpa
+
+  ensure_dirs
+  ensure_secret management-key 24
+  ensure_secret omc-master-key 32
+
+  domain="gui/$(id -u)"
+  launchctl bootout "$domain/$OMC_LABEL" 2>/dev/null || true
+  install -m 755 "$work/oh-my-cpa" "$OMC_DIR/oh-my-cpa"
+  xattr -d com.apple.quarantine "$OMC_DIR/oh-my-cpa" 2>/dev/null || true
+
+  if [[ -e "$OMC_DIR/.env" ]]; then
+    info "Keeping existing $OMC_DIR/.env"
+  else
+    render "$TEMPLATES/oh-my-cpa.env.template" "$OMC_DIR/.env" \
+      "s/__OMC_MASTER_KEY__/$(secret omc-master-key)/" \
+      "s/__MANAGEMENT_KEY__/$(secret management-key)/"
+    info "Wrote $OMC_DIR/.env"
+  fi
+
+  install_agent "$OMC_LABEL"
+  info "Oh My CPA $version is starting at $OMC_URL"
+}
+
+cmd_status() {
+  local key auths
+  key="$(secret client-key)"
+  printf 'CLIProxyAPI   '
+  brew services info cliproxyapi --json 2>/dev/null | jq -r '.[0].status // "unknown"'
+  printf 'Accounts      '
+  auths="$(find "$CPA_DIR" -maxdepth 1 -name '*.json' 2>/dev/null | sed 's|.*/||' | sort | tr '\n' ' ')"
+  printf '%s\n' "${auths:-none}"
+  printf 'Models        '
+  curl -fsS -H "Authorization: Bearer $key" "$CPA_URL/v1/models" 2>/dev/null |
+    jq -r '[.data[].id] | length | tostring + " available"' 2>/dev/null || echo "unreachable"
+  printf 'Oh My CPA     '
+  curl -fsS "$OMC_URL/api/healthz" 2>/dev/null | jq -c '{status, cpa_connected}' 2>/dev/null ||
+    echo "unreachable"
+}
+
+case "${1:-}" in
+  setup) cmd_setup ;;
+  login) shift && cmd_login "$@" ;;
+  install-omc) shift && cmd_install_omc "$@" ;;
+  status) cmd_status ;;
+  key) secret client-key ;;
+  -h | --help | help | "") usage ;;
+  *) usage >&2 && exit 1 ;;
+esac

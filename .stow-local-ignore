@@ -19,3 +19,4 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+^/agent-gateway

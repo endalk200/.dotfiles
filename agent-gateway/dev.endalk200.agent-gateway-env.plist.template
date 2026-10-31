@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Exposes the proxy client key to GUI apps (Codex app, T3 Code) at login. -->
+  <key>Label</key>
+  <string>dev.endalk200.agent-gateway-env</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>-c</string>
+    <string>/bin/launchctl setenv CLIPROXY_API_KEY "$(cat "$HOME/.local/share/agent-gateway/client-key")"</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>

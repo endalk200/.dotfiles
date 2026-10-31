@@ -11,16 +11,21 @@
   },
   "diffs": {
     "wrap": "word",
-    "view": "unified"
+    "view": "unified",
+    "single": true
   },
   "session": {
     "sidebar": "auto",
     "scrollbar": false,
     "thinking": "show",
-    "grouping": "auto"
+    "grouping": "auto",
+    "image_preview": true
   },
   "hints": {
     "onboarding": false
   },
-  "animations": true
+  "animations": true,
+  "prompt": {
+    "image_preview": false
+  }
 }

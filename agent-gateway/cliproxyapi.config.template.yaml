@@ -1,0 +1,41 @@
+# CLIProxyAPI configuration template.
+#
+# `agent-gateway setup` renders this file into ~/.cli-proxy-api/config.yaml and
+# fills in the keys from ~/.local/share/agent-gateway. The rendered file holds
+# secrets and is edited by Oh My CPA, so it stays on this machine only.
+config-version: 8
+
+server:
+  # Loopback only. Nothing outside this Mac can reach the proxy.
+  host: "127.0.0.1"
+  port: 8317
+
+management:
+  allow-remote: false
+  # Oh My CPA signs in with this key. CPA hashes it on first start.
+  secret-key: "__MANAGEMENT_KEY__"
+
+access:
+  # Client key for Claude Code, Codex, and OpenCode.
+  api-keys:
+    - "__CLIENT_KEY__"
+
+routing:
+  # Use one account until it hits a limit, then move to the next.
+  strategy: "fill-first"
+  # Keep a session on one account so the prompt cache stays warm.
+  session-affinity: true
+  session-affinity-ttl: "1h"
+
+oauth:
+  auth-dir: "~/.cli-proxy-api"
+
+observability:
+  logs:
+    logging-to-file: true
+    logs-max-total-size-mb: 200
+    # Full request bodies stay off: they would store code and prompts in plain text.
+    request-log: false
+  usage:
+    # Oh My CPA reads usage records from this queue.
+    usage-statistics-enabled: true

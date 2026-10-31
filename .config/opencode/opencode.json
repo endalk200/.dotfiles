@@ -13,10 +13,42 @@
     }
   ],
   "providers": {
+    "cliproxy-claude": {
+      "name": "Agent Gateway (Claude)",
+      "canonical": "anthropic",
+      "package": "@opencode/ai/providers/anthropic",
+      "settings": {
+        "baseURL": "http://127.0.0.1:8317/v1",
+        "apiKey": "{file:~/.local/share/agent-gateway/client-key}"
+      },
+      "models": {
+        "claude-fable-5-1": { "name": "Claude Fable 5.1" },
+        "claude-opus-5-5": { "name": "Claude Opus 5.5" },
+        "claude-sonnet-5-5": { "name": "Claude Sonnet 5.5" },
+        "claude-haiku-5-5": { "name": "Claude Haiku 5.5" }
+      }
+    },
+    "cliproxy-codex": {
+      "name": "Agent Gateway (Codex)",
+      "canonical": "openai",
+      "package": "@opencode/ai/providers/openai/responses",
+      "settings": {
+        "baseURL": "http://127.0.0.1:8317/v1",
+        "apiKey": "{file:~/.local/share/agent-gateway/client-key}"
+      },
+      "models": {
+        "gpt-6-astra": { "name": "GPT-6 Astra" },
+        "gpt-6.1-sol": { "name": "GPT-6.1 Sol" },
+        "gpt-6.1-terra": { "name": "GPT-6.1 Terra" },
+        "gpt-6-luna": { "name": "GPT-6 Luna" }
+      }
+    },
     "openrouter": {
       "package": "aisdk:@openrouter/ai-sdk-provider",
       "name": "OpenRouter",
-      "env": ["OPENROUTER_API_KEY"],
+      "env": [
+        "OPENROUTER_API_KEY"
+      ],
       "models": {
         "anthropic/claude-3.5-sonnet": {
           "name": "Claude 3.5 Sonnet"
@@ -42,8 +74,13 @@
           },
           "capabilities": {
             "tools": true,
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "limit": {
             "context": 1000000,
@@ -72,8 +109,13 @@
           },
           "capabilities": {
             "tools": true,
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "limit": {
             "context": 1000000,
@@ -132,8 +174,13 @@
           },
           "capabilities": {
             "tools": true,
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "limit": {
             "context": 272000,
@@ -172,7 +219,12 @@
     "servers": {
       "linear": {
         "type": "local",
-        "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/mcp"],
+        "command": [
+          "npx",
+          "-y",
+          "mcp-remote",
+          "https://mcp.linear.app/mcp"
+        ],
         "disabled": true
       },
       "context7": {
@@ -180,7 +232,14 @@
         "url": "https://mcp.context7.com/mcp",
         "disabled": true
       }
+    },
+    "posthog": {
+      "type": "remote",
+      "url": "https://mcp.posthog.com/mcp"
     }
   },
-  "model": "bethelAIGateway/azure/gpt-5.2"
+  "model": "bethelAIGateway/azure/gpt-5.2",
+  "websearch": {
+    "provider": "random"
+  }
 }

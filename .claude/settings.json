@@ -1,0 +1,39 @@
+{
+  "cleanupPeriodDays": 3650,
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "posthog@posthog": true
+  },
+  "extraKnownMarketplaces": {
+    "posthog": {
+      "source": {
+        "source": "github",
+        "repo": "PostHog/ai-plugin"
+      }
+    }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "theme": "dark",
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8317",
+    "API_TIMEOUT_MS": "600000"
+  },
+  "apiKeyHelper": "/Users/endalk200/.local/bin/agent-gateway key"
+}

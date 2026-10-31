@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>dev.endalk200.oh-my-cpa</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__HOME__/.local/share/oh-my-cpa/oh-my-cpa</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>__HOME__/.local/share/oh-my-cpa</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>StandardOutPath</key>
+  <string>__HOME__/Library/Logs/oh-my-cpa.log</string>
+  <key>StandardErrorPath</key>
+  <string>__HOME__/Library/Logs/oh-my-cpa.log</string>
+</dict>
+</plist>

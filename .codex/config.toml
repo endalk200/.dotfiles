@@ -1,0 +1,648 @@
+model = "gpt-6-astra"
+model_reasoning_effort = "high"
+# Route requests through the local agent gateway (CLIProxyAPI). See ~/.dotfiles/agent-gateway.
+model_provider = "cliproxyapi"
+
+personality = "pragmatic"
+
+
+
+notify = ["/Users/endalk200/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+sandbox_mode = "workspace-write"
+service_tier = "default"
+
+[sandbox_workspace_write]
+network_access = true
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/endalk200/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/endalk200/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[marketplaces.posthog]
+source_type = "git"
+source = "https://github.com/PostHog/ai-plugin.git"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-19-what-version-of-jw-library-do"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-19-use-computer-use-plugin-computer-use"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-19-there-is-an-email-in-my"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/sora-union/overture"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/bethel/nesher"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/better-webhook"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-25/mute-the-volume"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-25/computer-use-plugin-computer-use-openai"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-25/computer-use-plugin-computer-use-openai-2"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-27/i-am-building-code-review-tool"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/bethel/skopeo"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/sora-union/altarrock-client-login"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-27/create-spreadsheets-plugin-spreadsheets-openai-primary"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-27/create-an-infographic-that-talks-about"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-28/i-am-building-a-gateway-an"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-28/how-can-i-configure-reasoning-in"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-04-29/generate-landing-page-design-image"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-03/i-have-a-blank-google-spreadsheet"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-03/i-have-a-blank-google-spreadsheet-2"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-03/i-have-a-google-sheet-that"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/experiments/effect-ts.poc"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/abel.website"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-13/turn-on-light-mode-computer-plugin"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-14/i-am-new-two-effect-ts"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-18/how-do-i-enable-goal-in"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-18/there-is-this-project-i-am"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-18/what-is-the-pattern-of-returning"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-19/can-you-close-all-of-the"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-19/can-you-review-all-the-branch"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-19/whats-the-most-popular-and-best"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-20/i-want-to-work-on-an"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-21/what-are-the-most-common-github"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/@launchkey/nextjs-launchkey"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-05-30/in-app-browser-the-user-has"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-01/i-want-you-to-uninstall-the"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/motel"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-03/i-have-a-video-file-on"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-04/give-me-a-draft-email-to"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/@launchkey/launchkey"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-05/i-received-performance-based-bonus-how"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-06/we-are-building-a-platform-where"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-06/we-are-building-a-platform-where-2"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/.dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-14/hi"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-14-i-have-many-applications-webapps-and"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-14/i-want-to-build-a-project"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/spire"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/belfry"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-16/hi"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-16/look-across-my-threads-and-projects"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-16/i-want-you-to-carefully-un"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-18/hi"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-19/ho"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-19/is"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-19/rea"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/bethel/fearlessly"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/experiments/executor.poc"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-27/co"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/scribe"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-06-27/is"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-05/how"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-06/wh"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-09/i"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/skills"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-11/install-this-skill"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-11/li"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-11/list-all-the-tools-skills-and"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-11/sites-plugin-sites-openai-bundled-create"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-13/sa"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-13/wh"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-13/i"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-13/the"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-13/there-is-this-visualize-plugin-visualize"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/personal/artiflow"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-15/wha"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-17/wha"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-18/go-through-and-audit-the-following"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-18/go-through-and-audit-the-following-2"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-18/go-through-and-audit-the-following-3"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-18/go-through-and-audit-the-following-4"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-18/do"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-18/go-through-and-audit-the-following-5"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-18/what"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-20/i"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-21/is"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-22/wit"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-22/i-w"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-24/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-24/realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-25/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/sora-union/overture_v2"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-27/is"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-28/ge"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-28/i"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-29/re"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-29/we"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-07-29/i"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/soraunion"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-05/can"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-05/wh"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/bethel/gitlab"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/sora-union/overture-infra"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-12/i-w"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/src/projects/bethel/k0s"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-14/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-15/what-is-tanzu-what-is-vsphere"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-25/sites-plugin-sites-openai-bundled-create"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/.codex-t3/work"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-26/v"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-08-31/how"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-02/te"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-02/what"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-02/sites-plugin-sites-openai-bundled-create"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-02/i"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-02/can"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-02/can-you-help-me-make-sense"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-03/hi"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-03/new-chat"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-07/ena"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-07/overture-infra-document-analysis"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-08/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-11/i-x20"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-12/i"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-15/programming-as-theory-building-https-pages"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-17/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/endalk200/Documents/Codex/2026-09-24/i-x20"]
+trust_level = "trusted"
+
+[plugins."documents@openai-primary-runtime"]
+enabled = false
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."codex-security@openai-curated"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = false
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = false
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = false
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = false
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."posthog@posthog"]
+enabled = true
+
+[features]
+context_management.experimental_mode = true
+hooks = true
+chronicle = false
+terminal_resize_reflow = true
+goals = true
+js_repl = false
+
+[features.network_proxy]
+enabled = false
+domains = { "localhost" = "allow", "127.0.0.1" = "allow", "::1" = "allow" }
+
+[tui]
+screen_reader_detection_done = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 2
+"gpt-6.1-sol" = 1
+
+[[skills.config]]
+path = "/Users/endalk200/src/projects/bethel/skopeo/.agents/skills/engineering-guidelines/SKILL.md"
+enabled = false
+
+[[skills.config]]
+name = "presentations:Presentations"
+enabled = false
+
+[[skills.config]]
+name = "github:yeet"
+enabled = false
+
+[[skills.config]]
+path = "/Users/endalk200/.codex/skills/.system/plugin-creator/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/endalk200/.codex/skills/.system/skill-installer/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/endalk200/.codex/skills/.system/skill-creator/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/endalk200/.codex/skills/playwright/SKILL.md"
+enabled = false
+
+[[skills.config]]
+name = "github:github"
+enabled = false
+
+[[skills.config]]
+name = "github:gh-fix-ci"
+enabled = false
+
+[[skills.config]]
+name = "github:gh-address-comments"
+enabled = false
+
+[[skills.config]]
+path = "/Users/endalk200/src/projects/sora-union/overture_v2/.agents/skills/commit/SKILL.md"
+enabled = false
+
+[desktop]
+appearanceDarkCodeThemeId = "tokyo-night"
+sansFontSize = 17
+codeFontSize = 15
+usePointerCursors = false
+reviewDelivery = "detached"
+preventSleepWhileRunning = true
+keepRemoteControlAwakeWhilePluggedIn = true
+git-branch-prefix = ""
+git-create-pull-request-as-draft = true
+git-commit-instructions = "Use conventional commit principle when generating commit titles and descriptions. Make sure the commit not only tell what changed but also provides context into the reasoning behind. Use the conventional commit skill if it exists."
+selected-avatar-id = "codex"
+conversationDetailMode = "STEPS_COMMANDS"
+appearanceLightCodeThemeId = "everforest"
+appearanceTheme = "system"
+show-context-window-usage = true
+dock-icon-preference = "codex-system"
+followUpQueueMode = "queue"
+dictationDictionary = []
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]
+microphoneInputDeviceId = "f2c73619d04aff343ecc8eaa756467a47f6058e932e0ad191ea484cef4a59b07"
+realtimeVoiceScreenContextEnabled = true
+toys-audio-visualizer-enabled = false
+avatar-overlay-pet-visible = false
+default-workspace-full-view = false
+
+[desktop.appearanceLightChromeTheme]
+accent = "#93b259"
+accentSource = "custom"
+contrast = 72
+ink = "#5c6a72"
+opaqueWindows = false
+surface = "#fdf6e3"
+
+[desktop.appearanceLightChromeTheme.fonts]
+code = '"SFMono-Regular"'
+ui = "Inter"
+
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#8da101"
+diffRemoved = "#f85552"
+skill = "#df69ba"
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#3d59a1"
+accentSource = "custom"
+contrast = 100
+ink = "#a9b1d6"
+opaqueWindows = false
+surface = "#1a1b26"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+code = '"JetBrainsMono Nerd Font Mono"'
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#449dab"
+diffRemoved = "#914c54"
+skill = "#9d7cd8"
+
+[desktop.open-in-target-preferences]
+global = "fileManager"
+
+[desktop.open-in-target-preferences.perPath]
+"/Users/endalk200/src/projects/bethel/skopeo" = "vscode"
+"/Users/endalk200/Documents/Codex/2026-06-06/we-are-building-a-platform-where-2" = "vscode"
+"/Users/endalk200/src/projects/personal/@launchkey/nextjs-launchkey" = "fileManager"
+"/Users/endalk200/src/projects/sora-union/overture_v2" = "fileManager"
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/endalk200/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/endalk200/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.1021.31345"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/endalk200/.codex/plugins/cache/openai-bundled/browser/26.1021.31345/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/endalk200/.codex/computer-use/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+
+[mcp_servers.posthog]
+startup_timeout_sec = 30
+url = "https://mcp.posthog.com/mcp"
+
+[apps.connector_947e0d954944416db111db556030eea6]
+enabled = true
+
+[apps.asdk_app_6a3c278c93ac8191b29768648d63a754]
+enabled = false
+
+[apps.connector_2128aebfecb84f64a069897515042a44]
+enabled = true
+
+[apps.connector_20205bf7d4e99a89d7154bb849718324]
+enabled = true
+
+[shell_environment_policy.set]
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "9230e2bd8b24b7ac7a0ba6774c64bf0d78ecdabbdd91d0ed627b02a587bae2df"
+
+[browser_use.origins."http://localhost:3000"]
+access = "allow"
+downloads = "allow"
+
+[hooks.state."/Users/endalk200/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:7ac16f27c7b29bec5952047d0a2193dc7595d731faca5a12c3c476194bd2d532"
+
+[model_providers.cliproxyapi]
+name = "OpenAI"
+base_url = "http://127.0.0.1:8317/v1"
+wire_api = "responses"
+requires_openai_auth = true
+supports_websockets = true
+supports_standalone_web_search = true
+env_http_headers = { "X-Api-Key" = "CLIPROXY_API_KEY" }

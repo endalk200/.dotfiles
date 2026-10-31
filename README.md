@@ -17,6 +17,10 @@ If Stow reports conflicts, move the existing conflicting configs to a backup loc
 
 After pulling updates, run `stow --verbose --target="$HOME" .` from `~/.dotfiles` again to link new files.
 
+## AI coding agents
+
+Claude Code (`.claude/settings.json`), Codex (`.codex/config.toml`), and OpenCode (`.config/opencode/`) configs are tracked here. They route model requests through a local proxy; see [agent-gateway/README.md](agent-gateway/README.md) to set it up. The `agent-gateway` folder is not linked into your home directory.
+
 ## Tools Configured
 
 - Neovim
