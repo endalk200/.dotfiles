@@ -14,7 +14,7 @@
   ],
   "providers": {
     "cliproxy-claude": {
-      "name": "Agent Gateway (Claude)",
+      "name": "CLI Proxy (Claude)",
       "canonical": "anthropic",
       "package": "@opencode/ai/providers/anthropic",
       "settings": {
@@ -37,7 +37,7 @@
       }
     },
     "cliproxy-codex": {
-      "name": "Agent Gateway (Codex)",
+      "name": "CLI Proxy (Codex)",
       "canonical": "openai",
       "package": "@opencode/ai/providers/openai/responses",
       "settings": {
@@ -56,21 +56,6 @@
         },
         "gpt-6-luna": {
           "name": "GPT-6 Luna"
-        }
-      }
-    },
-    "openrouter": {
-      "package": "aisdk:@openrouter/ai-sdk-provider",
-      "name": "OpenRouter",
-      "env": [
-        "OPENROUTER_API_KEY"
-      ],
-      "models": {
-        "anthropic/claude-3.5-sonnet": {
-          "name": "Claude 3.5 Sonnet"
-        },
-        "anthropic/claude-sonnet-4": {
-          "name": "Claude 4 Sonnet"
         }
       }
     },
@@ -254,7 +239,7 @@
       }
     }
   },
-  "model": "bethelAIGateway/azure/gpt-5.2",
+  "model": "cliproxy-claude/claude-opus-5-5",
   "websearch": {
     "provider": "random"
   }
