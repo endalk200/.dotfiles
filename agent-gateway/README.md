@@ -30,7 +30,9 @@ The repo holds templates and client configuration, never secrets.
 | `~/.local/share/oh-my-cpa/` | No | Oh My CPA binary, `.env`, and database |
 
 Back up `~/.local/share/agent-gateway/`. Without `omc-master-key`, the Oh My CPA
-database cannot be read.
+database cannot be read. `agent-gateway backup DEST` copies the keys, the account
+logins, and a consistent snapshot of the Oh My CPA database into a dated folder
+under `DEST`. The copy contains live logins, so keep it on an encrypted drive.
 
 The client key reaches each tool differently:
 

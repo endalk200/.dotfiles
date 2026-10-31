@@ -31,6 +31,7 @@ Commands:
   login claude|codex  Sign in to one more subscription account (--no-browser prints the URL)
   install-omc [VER]   Install or upgrade Oh My CPA (latest release by default)
   status              Show proxy, accounts, and Oh My CPA health
+  backup DEST         Copy keys, account logins, and the Oh My CPA database to DEST
   key                 Print the proxy client key (used by Claude Code's apiKeyHelper)
 EOF
 }
@@ -178,11 +179,29 @@ cmd_status() {
     echo "unreachable"
 }
 
+cmd_backup() {
+  local dest="${1:-}" target
+  [[ -n "$dest" ]] || die "Usage: agent-gateway backup DEST (an external drive or other private folder)"
+  [[ -d "$dest" ]] || die "$dest does not exist"
+  target="$dest/agent-gateway-$(date +%Y%m%d-%H%M%S)"
+  (umask 077 && mkdir -p "$target/oh-my-cpa" "$target/cli-proxy-api")
+
+  cp -p "$SECRETS_DIR"/* "$target/"
+  cp -p "$OMC_DIR/.env" "$target/oh-my-cpa/.env"
+  # VACUUM INTO writes a consistent snapshot while Oh My CPA keeps running.
+  sqlite3 "$OMC_DIR/data/oh-my-cpa.db" "VACUUM INTO '$target/oh-my-cpa/oh-my-cpa.db';"
+  find "$CPA_DIR" -maxdepth 1 -type f \( -name '*.json' -o -name 'config.yaml' \) \
+    -exec cp -p {} "$target/cli-proxy-api/" \;
+  chmod -R go-rwx "$target"
+  info "Backed up to $target"
+}
+
 case "${1:-}" in
   setup) cmd_setup ;;
   login) shift && cmd_login "$@" ;;
   install-omc) shift && cmd_install_omc "$@" ;;
   status) cmd_status ;;
+  backup) shift && cmd_backup "$@" ;;
   key) secret client-key ;;
   -h | --help | help | "") usage ;;
   *) usage >&2 && exit 1 ;;
