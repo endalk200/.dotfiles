@@ -124,7 +124,10 @@ setopt HIST_EXPIRE_DUPS_FIRST # delete duplicates first when HISTFILE size excee
 
 # setopt APPENDHISTORY # Append to history file don't override it
 setopt SHAREHISTORY # Share command history between all running zsh sessions
-setopt HIST_IGNORE_SPACE # Ignore commands starting with space 
+setopt HIST_IGNORE_SPACE # Ignore commands starting with space
+
+# Globs
+setopt NO_NOMATCH # Pass an unmatched glob through as literal text (like bash) instead of aborting the command
 
 
 # pnpm
@@ -151,3 +154,9 @@ export OPENCODE_EXPERIMENTAL_PLAN_MODE=1
 
 # bun completions
 [ -s "/Users/endalk200/.bun/_bun" ] && source "/Users/endalk200/.bun/_bun"
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<

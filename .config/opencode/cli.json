@@ -1,0 +1,26 @@
+{
+  "theme": {
+    "name": "tokyonight",
+    "mode": "system"
+  },
+  "keybinds": {
+    "input.newline": "shift+return,ctrl+j"
+  },
+  "scroll": {
+    "acceleration": true
+  },
+  "diffs": {
+    "wrap": "word",
+    "view": "unified"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": false,
+    "thinking": "show",
+    "grouping": "auto"
+  },
+  "hints": {
+    "onboarding": false
+  },
+  "animations": true
+}
