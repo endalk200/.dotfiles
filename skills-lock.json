@@ -5,7 +5,7 @@
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/commit/SKILL.md",
-      "computedHash": "3f166aa344b098343e199830b76d7bee9af0419a59d88d96d022f626e5f01fa2"
+      "computedHash": "7a4474d799f1b84eb003779b4f07479d35ec8b21694b1e621a7190f08b9d4e24"
     },
     "create-pr": {
       "source": "endalk200/skills",
@@ -35,7 +35,7 @@
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/writing-for-agents/SKILL.md",
-      "computedHash": "9fe73c313f0244230b3d653e333cd97a6761868dc3fdbc0d1d0b2623e6771b8e"
+      "computedHash": "f295bb230c95c37eea769d53201ee9a4b7e550f4f732bf7a596a43b7302208c9"
     }
   }
 }
