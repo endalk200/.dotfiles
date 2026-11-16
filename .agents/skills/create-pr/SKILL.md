@@ -52,4 +52,4 @@ After that opening, structure the description with the template in [PR-BODY.md](
 - **Evidence**: a before and after that shows the change works. "Tests are green" is a claim, not evidence. Show only what you observed; when you have nothing to show, say what was not verified.
 - **Merge Danger**: whether the change is a one-way or two-way door, and its blast radius.
 
-Open a ready PR or MR so review bots run unless the user explicitly requests a draft. Fetch the created request and verify that its source, target, labels, and assignee match the intended values before reporting success. If the user also asked to babysit it, read the `babysit-pr` skill completely and follow it.
+Open a ready PR or MR so review bots run unless the user explicitly requests a draft. Fetch the created request and verify that its source, target, labels, and assignee match the intended values before reporting success. If the user also asked to babysit it, read the `code-review` skill completely and follow it in PR mode once reviewers have reported.

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup Verification"
+  short_description: "Set up scripted verification of a repository's running app"
+policy:
+  allow_implicit_invocation: false

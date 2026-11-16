@@ -1,0 +1,5 @@
+interface:
+  display_name: "Maintain Verification"
+  short_description: "Audit and fix a repository's verification runbook and feature map"
+policy:
+  allow_implicit_invocation: false
