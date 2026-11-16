@@ -1,41 +1,96 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
+    "code-review": {
+      "source": "endalk200/skills",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "sourceType": "github",
+      "skillPath": "skills/code-review/SKILL.md",
+      "computedHash": "0bfcee3bf55f2f1f5812365788b58cf856dc6e05b2b7ab7813bddef9a3e3e550"
+    },
     "commit": {
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/commit/SKILL.md",
-      "computedHash": "7a4474d799f1b84eb003779b4f07479d35ec8b21694b1e621a7190f08b9d4e24"
+      "computedHash": "f2df013d4425920330752eddc13597eef9c83e90435235496c9dd4dffed7d33a",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2"
     },
     "create-pr": {
       "source": "endalk200/skills",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
       "sourceType": "github",
       "skillPath": "skills/create-pr/SKILL.md",
-      "computedHash": "0b798a7524b0faa21a29c250b5a6dda3028f0468801482ca49d7349c76ac366c"
+      "computedHash": "73e8bd697e799313a31c2792e8763e497c441976b0c63219fec526778c367f33"
+    },
+    "maintain-verification": {
+      "source": "endalk200/skills",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "sourceType": "github",
+      "skillPath": "skills/maintain-verification/SKILL.md",
+      "computedHash": "5c6d23f6714cd68703e4b7f7832307410e25579e0404f802a5f5da8f1d9de9da"
+    },
+    "prototype": {
+      "source": "endalk200/skills",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "sourceType": "github",
+      "skillPath": "skills/prototype/SKILL.md",
+      "computedHash": "462aa3d548c859c3bf53dce30df4d0eeafbeedea9905b072f3f45bbeed9978cd"
+    },
+    "research": {
+      "source": "endalk200/skills",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "sourceType": "github",
+      "skillPath": "skills/research/SKILL.md",
+      "computedHash": "bf8b5f87f65508fb3c9a4fbe60f8b5de9744eaf705ae9f6954fdab3a71ae5ad6"
+    },
+    "retro": {
+      "source": "endalk200/skills",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "sourceType": "github",
+      "skillPath": "skills/retro/SKILL.md",
+      "computedHash": "d7d386a06f4ef2b67b73b3066c777b771f1f2f3e3b58bf5d43f89597a790c2bc"
+    },
+    "setup-skills": {
+      "source": "endalk200/skills",
+      "sourceType": "github",
+      "skillPath": "skills/setup-skills/SKILL.md",
+      "computedHash": "c27d65cee8d3f0bbbadd2704b41aeeeef84de87ad04ac039706ef534f6fc0279",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2"
+    },
+    "setup-verification": {
+      "source": "endalk200/skills",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "sourceType": "github",
+      "skillPath": "skills/setup-verification/SKILL.md",
+      "computedHash": "54d89e55af89c3eeb5c7c0c6a8815e9061ebbbb20c6b30f4a599dbe01fa84fbe"
     },
     "teach": {
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/teach/SKILL.md",
-      "computedHash": "d3994a0b79920fad0534f09e6e6547976d93dcd4cd4caea6c085bd9c4e0c65e2"
+      "computedHash": "27d0f76db3a18c3e3bbf6bb6127bb7754d3ca8a914a16e7ea7fbb7035410b37c",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2"
     },
     "technical-writing": {
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/technical-writing/SKILL.md",
-      "computedHash": "bdc396cffd2ca10b383c3f6c045f0d8e9f391cb4e5a8769ed09fa25782f367a7"
+      "computedHash": "96ea03be0d167b420903487028e4cc5c230523861cb76b5cd99ee3a05a4cd9ed",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2"
     },
     "wait-what": {
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/wait-what/SKILL.md",
-      "computedHash": "79d0cc1664f3509f40284ac707ed8a0b7cd296ee6534c1327e9d91545993bd95"
+      "computedHash": "7be278f8d91993e7ff66a5891521909f8a3d98bd259d57ec17eb62ec18da2d02",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2"
     },
     "writing-for-agents": {
       "source": "endalk200/skills",
       "sourceType": "github",
       "skillPath": "skills/writing-for-agents/SKILL.md",
-      "computedHash": "f295bb230c95c37eea769d53201ee9a4b7e550f4f732bf7a596a43b7302208c9"
+      "computedHash": "45bf86e4cd148db07b3335fdddbc9299177936d794d27010eeb119920510e725",
+      "commit": "bda10b37d756267374f7798221dead72de5a69d2"
     }
   }
 }

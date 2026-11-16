@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Update the agent skills curated in ~/.dotfiles and relink them with stow.
+#
+# skills-lock.json is the curated list. Change it from ~/.dotfiles, never with -g:
+#   add:    npx skills add endalk200/skills --skill <name> -a claude-code -a codex -y
+#   remove: npx skills remove <name> -y
+# Name both agents when adding: with one agent the CLI copies the skill into
+# .claude/skills instead of linking it to the shared copy in .agents/skills.
+set -euo pipefail
+
+dotfiles="${DOTFILES:-$HOME/.dotfiles}"
+lock="$dotfiles/skills-lock.json"
+skills=(npx -y skills@latest)
+cd "$dotfiles"
+
+# 1. Remove curated skills that their source repository no longer ships.
+while IFS=$'\t' read -r name source path; do
+  if err=$(gh api "repos/$source/contents/$path" --silent 2>&1); then
+    continue
+  fi
+  if [[ $err != *"HTTP 404"* ]]; then
+    echo "skills-sync: cannot check $name in $source: $err" >&2
+    exit 1
+  fi
+  echo "skills-sync: $source no longer ships $name, removing it"
+  "${skills[@]}" remove "$name" -y
+done < <(jq -r '.skills | to_entries[] | select(.value.sourceType == "github")
+  | [.key, .value.source, .value.skillPath] | @tsv' "$lock")
+
+# 2. Move the remaining skills to the latest commit of their source.
+"${skills[@]}" update -p -y
+
+# 3. Drop stowed Claude links whose skill is gone.
+for link in "$HOME"/.claude/skills/*; do
+  if [[ -L $link && ! -e $link && $(readlink "$link") == *".dotfiles/"* ]]; then
+    rm "$link"
+    echo "skills-sync: removed stale link $link"
+  fi
+done
+
+# 4. Link new skills into $HOME.
+stow --restow --target="$HOME" .
+
+git status --short -- skills-lock.json .agents/skills .claude/skills

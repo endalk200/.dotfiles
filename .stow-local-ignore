@@ -20,3 +20,4 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 ^/agent-gateway
+^/skills-lock\.json

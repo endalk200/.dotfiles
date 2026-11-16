@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Review"
+  short_description: "Triage and fix cross-model or PR review findings"
+policy:
+  allow_implicit_invocation: false

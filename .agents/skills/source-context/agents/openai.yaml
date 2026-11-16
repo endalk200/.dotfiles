@@ -1,3 +1,0 @@
-interface:
-  display_name: "Source Context"
-  short_description: "Inspect dependency source at the right version"
