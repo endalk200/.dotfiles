@@ -38,4 +38,6 @@ Cleanup removes instances and scratch state. Evidence stays at its named locatio
 
 ## Helpers
 
-- `<script>`: <what it does>. Run `<invocation>`.
+The harness lives in `<docs/agents/verification/scripts/ or the repository path of its tooling>`. After changing tooling outside `scripts/`, `<check command>` stays green.
+
+- `<script or command>`: <what it does>. Run `<invocation>`.

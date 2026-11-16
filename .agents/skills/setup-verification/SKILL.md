@@ -31,7 +31,7 @@ Write `docs/agents/verification/README.md` from [runbook.md](runbook.md), replac
 - **Drive** uses stable handles (ARIA roles and names, data attributes, prompt strings, route paths) over coordinates and tab order.
 - **Evidence** names a git-ignored directory. Add it to `.gitignore` when it is missing.
 - **Cleanup** stops exactly what Launch started, by the PID, container, or session name Launch recorded.
-- **Helpers** lists each script in `docs/agents/verification/scripts/`. Every script is executable and its invocation is shown. Delete the section when no script ships.
+- **Helpers** names where the harness lives: `docs/agents/verification/scripts/` for scripts this skill writes, or the repository's own tooling (a package, Makefile targets, an existing test harness) when the drive uses that. It lists each command with its invocation, and for tooling outside `scripts/`, the check that must stay green after changing it. Every script is executable. Delete the section when the drive needs nothing beyond the app's own commands.
 
 ## 3. Seed the feature map
 

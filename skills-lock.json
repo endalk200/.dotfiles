@@ -24,10 +24,10 @@
     },
     "maintain-verification": {
       "source": "endalk200/skills",
-      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "commit": "3c3ca13e8a8ad114c5b96c5cd9ef2cff39f7a473",
       "sourceType": "github",
       "skillPath": "skills/maintain-verification/SKILL.md",
-      "computedHash": "5c6d23f6714cd68703e4b7f7832307410e25579e0404f802a5f5da8f1d9de9da"
+      "computedHash": "e2722b9464adf847edabaeac93286f05d9e115038d0ff72b54da1a40bd38bb9c"
     },
     "prototype": {
       "source": "endalk200/skills",
@@ -59,10 +59,10 @@
     },
     "setup-verification": {
       "source": "endalk200/skills",
-      "commit": "bda10b37d756267374f7798221dead72de5a69d2",
+      "commit": "3c3ca13e8a8ad114c5b96c5cd9ef2cff39f7a473",
       "sourceType": "github",
       "skillPath": "skills/setup-verification/SKILL.md",
-      "computedHash": "54d89e55af89c3eeb5c7c0c6a8815e9061ebbbb20c6b30f4a599dbe01fa84fbe"
+      "computedHash": "a18100f5a925d1c541c523ccaa5aeb80791c74d624926186c6510e5d09ad4685"
     },
     "teach": {
       "source": "endalk200/skills",

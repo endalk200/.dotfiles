@@ -20,7 +20,7 @@ End with exactly one, and name it:
 
 ## Edit scope
 
-Edit only `docs/agents/verification/`. Product code stays untouched for the whole run. When the app no longer does what the map says, the mismatch is either **drift** (the map is wrong, so fix the map) or a **product gap** (the app is broken, so report it and leave the map describing the intended behavior).
+Edit only `docs/agents/verification/` and the harness its runbook's Helpers section names. Product code stays untouched for the whole run. When the app no longer does what the map says, the mismatch is either **drift** (the map is wrong, so fix the map) or a **product gap** (the app is broken, so report it and leave the map describing the intended behavior).
 
 ## Pass
 
@@ -39,7 +39,7 @@ Edit only `docs/agents/verification/`. Product code stays untouched for the whol
 
 5. **Triage.** Sort each finding:
    - **Drift:** the map's user-POV description is wrong or missing. Fix the map.
-   - **Harness gap:** the app works, but the runbook cannot drive it. Fix the harness, keeping every script in `scripts/` executable with its invocation shown in the runbook, then re-drive the feature live.
+   - **Harness gap:** the app works, but the runbook cannot drive it. Fix the harness the runbook names, keeping every script executable, every invocation shown in the runbook, and the runbook's named check green, then re-drive the feature live.
    - **Product gap:** the app is broken. Record it with its evidence for the report, outside this change.
 
 6. **Ship or stop.** For changed, re-read every changed file, commit on a new branch with the `commit` skill, and open one PR with the `create-pr` skill. For clean or blocked, stop without a branch.
